@@ -17,7 +17,7 @@ use App\Payment;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::group(['middleware' => 'adminloggedin'], function(){

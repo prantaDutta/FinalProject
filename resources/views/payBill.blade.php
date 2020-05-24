@@ -201,7 +201,6 @@ $refund = $student*40;
                 <option value="rocket">Rocket</option>
                 <option value="ucash">Ucash</option>
                 <option value="purecash">PureCash</option>
-                <option value="gpay">Gpay</option>
             </select>
         </div>
         <div class="form-group">
@@ -249,11 +248,11 @@ $refund = $student*40;
             var refund = parseInt(refund,10);
 
             if (amount == 1)
-                var chooseAmount = 3000 + setFine + refund;
+                var chooseAmount = 3000 + setFine - refund;
             else if (amount == 2)
-                var chooseAmount = 6300 + setFine + refund;
+                var chooseAmount = 6300 + setFine - refund;
             else if (amount == 3)
-                var chooseAmount = 6000 + setFine + refund;
+                var chooseAmount = 6000 + setFine - refund;
 
             //console.log(chooseAmount);
             //$("#chooseAmount").append(chooseAmount);
@@ -262,16 +261,3 @@ $refund = $student*40;
         });
     });
 </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/5c9be2d11de11b6e3b058b23/default';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->

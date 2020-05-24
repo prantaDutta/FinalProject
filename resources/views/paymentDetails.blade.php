@@ -184,6 +184,14 @@ $pPayment = DB::table('payments')->where('userID',$userID)->latest()->get();
                                 <td>{{ $t ->dueFine }}&nbsp;&nbsp;&nbsp;</td>
                             </tr>
                             <tr>
+                                <th>Refund</th>
+                                <td>{{ $t ->refund }}&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <th>Total Amount</th>
+                                <td>{{ $t ->amount }}&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
                                 <th>Year</th>
                                 <td>{{ $t ->year }}&nbsp;&nbsp;&nbsp;</td>
                             </tr>

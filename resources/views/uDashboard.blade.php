@@ -13,6 +13,7 @@ $currentMonth = $current->format('F');
 $pay = DB::table('payments')->where('userID',$value)->latest()->first();
 $food = DB::table('foods')->where('userID',$value)->latest()->first();
 $student = DB::table('students')->where('id',$value)->where('accountStatus','=','inActive')->first();
+$studentCheck = DB::table('students')->where('id',$value)->first();
 
 if ($pay)
     $lastPay = $pay->updated_at;
@@ -172,7 +173,7 @@ else
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i>    Last Updated on {{ $student->updated_at }}
+                                        <i class="ti-reload"></i>    Last Updated on {{ $studentCheck->updated_at }}
                                     </div>
                                 </div>
                             </div>
@@ -240,7 +241,7 @@ else
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Payment Details</p>
-                                            <a class="badge badge-danger" href=" paymentDetailsCheck/{{ $student->id }} ">Receive Receipt</a>
+                                            <a class="badge badge-danger" href=" paymentDetailsCheck/{{ $studentCheck->id }} ">Receive Receipt</a>
                                         </div>
                                     </div>
                                 </div>
@@ -331,7 +332,7 @@ else
                             </ul>
                         </nav> -->
                             <div class="copyright pull-right">
-                                &copy; <script>document.write(new Date().getFullYear())</script>, made by <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Pranta, Joy, Abir and Ashu.</a>
+                                &copy; <script>document.write(new Date().getFullYear())</script>, made by <a href="http://www.creative-tim.com">Pranta, Joy, Abir and Ashu.</a>
                             </div>
                         </nav>
                     </div>
@@ -407,18 +408,5 @@ else
 
     });
 </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/5c9be2d11de11b6e3b058b23/default';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
 
 </html>

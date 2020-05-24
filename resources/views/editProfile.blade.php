@@ -135,14 +135,14 @@
             <label for="exampleInputEmail1">Guardian's Number</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $t->guardianNo }}" name="guardianNo">
           </div>
-          {{--<div class="form-group">
+          <div class="form-group">
             <label for="exampleInputPassword1">Current Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" value="" name="password1">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">New Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" value="" name="password1">
-          </div>--}}
+          </div>
           <div class="form-group">
             <label for="exampleFormControlFile1">Upload Profile Picture</label>
             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="filename">
@@ -171,16 +171,3 @@
         });
     });
 </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/5c9be2d11de11b6e3b058b23/default';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->

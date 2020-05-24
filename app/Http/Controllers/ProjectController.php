@@ -185,7 +185,7 @@ class ProjectController extends Controller
         $last = DB::table('students')->latest()->first();
 
         $message = $client->message()->send([
-            'to' => '88'.(int)$num,
+            'to' => '880'.(int)$num,
             'from' => 'HMS',
             'text' => 'Your username is '.$last->username.' and password is 123456. Please change your password to activate your account. Thank you.',
         ]);
@@ -305,17 +305,23 @@ class ProjectController extends Controller
         $obj = new Food();
 
 
-        $current = Carbon::now('Asia/Dhaka');
+        /*$current = Carbon::now('Asia/Dhaka');
         //$currentDate = $current->toArray();
         $currentYear = $current->year;
         $currentDay = $current->day;
-        $currentMonth = $current->format('F');
+        $currentMonth = $current->format('F');*/
 
         $meal = $request->input('meal');
+        $day = $request->input('day');
+        $month = $request->input('month');
+        $year = $request->input('year');
+
+        $newMonth = $month+1;
+
         if ($meal != 'Dinner' && $meal != 'Lunch')
             return Redirect::back()->withErrors(['Your Meal value is invalid']);
 
-        $findMeal = DB::table('foods')->where('userID',$id)->where('day',$currentDay)->where('month',$currentMonth)->where('year',$currentYear)->where('meal',$meal)->first();
+        $findMeal = DB::table('foods')->where('userID',$id)->where('day',$day)->where('month',$newMonth)->where('year',$year)->where('meal',$meal)->first();
 
         if ($findMeal){
             if ($findMeal->meal == 'Lunch')
@@ -324,11 +330,23 @@ class ProjectController extends Controller
                     return Redirect::back()->withErrors(['You already cancelled Dinner.']);
         }
 
+        if ($newMonth == 1) $stringMonth = 'January';
+        if ($newMonth == 2) $stringMonth = 'February';
+        if ($newMonth == 3) $stringMonth = 'March';
+        if ($newMonth == 4) $stringMonth = 'April';
+        if ($newMonth == 5) $stringMonth = 'May';
+        if ($newMonth == 6) $stringMonth = 'June';
+        if ($newMonth == 7) $stringMonth = 'July';
+        if ($newMonth == 8) $stringMonth = 'August';
+        if ($newMonth == 9) $stringMonth = 'September';
+        if ($newMonth == 10) $stringMonth = 'October';
+        if ($newMonth == 11) $stringMonth = 'November';
+        if ($newMonth == 12) $stringMonth = 'December';
         $obj->userID = $id;
         $obj->meal = $meal;
-        $obj->day = $currentDay;
-        $obj->month = $currentMonth;
-        $obj->year = $currentYear;
+        $obj->day = $day;
+        $obj->month = $stringMonth;
+        $obj->year = $year;
 
         if($obj->save()){
             return redirect()->back()->with('message', 'Meal Cancelled.');
@@ -392,7 +410,7 @@ class ProjectController extends Controller
         $obj->address = $address;
         /*$obj->education = $education;
         $obj->institution = $institution;*/
-        $obj->mobileNo = '0'.$mobileNo;
+        $obj->mobileNo = $mobileNo;
         /*$obj->localGuardian = $localGuardian;
         $obj->guardianNo = $guardianNo;*/
         //$obj->password = $confirmPassword;
@@ -431,7 +449,7 @@ class ProjectController extends Controller
         //$last = DB::table('students')->latest()->first();
 
         $message = $client->message()->send([
-            'to' => '88'.(int)$num,
+            'to' => '880'.(int)$num,
             'from' => 'HMS',
             'text' => 'Dear Mr. '.$student->firstName.' '.$student->lastName.' Your payment of tk. '.$obj->amount.' for the month of '.$obj->month.'. You can download the pdf copy of your receipt now. Thank you.',
         ]);

@@ -10,6 +10,7 @@ $day = $current->day;
 $bill = DB::table('payments')->where('confirmation','=','No')->get();
 $studentsBill = count($bill);
 $profile = DB::table('students')->where('accountStatus','=','inActive')->get();
+$userCheck = DB::table('students')->latest()->first();
 $studentsProfile = count($profile);
 $food = DB::table('foods')->where('day',$day)->count();
 
@@ -113,7 +114,7 @@ $admin = students::find($value);
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="card">
                             <div class="content">
                                 <div class="row">
@@ -138,7 +139,7 @@ $admin = students::find($value);
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="card">
                             <div class="content">
                                 <div class="row">
@@ -163,7 +164,7 @@ $admin = students::find($value);
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="card">
                             <div class="content">
                                 <div class="row">
@@ -188,7 +189,7 @@ $admin = students::find($value);
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="card">
                             <div class="content">
                                 <div class="row">
@@ -213,7 +214,7 @@ $admin = students::find($value);
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="card">
                             <div class="content">
                                 <div class="row">
@@ -236,19 +237,18 @@ $admin = students::find($value);
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i> 2 profile verification pending
+                                        <i class="ti-reload"></i> Last created on {{ $userCheck->created_at }}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="copyright pull-right">
-                            &copy; <script>document.write(new Date().getFullYear())</script>, made by <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Pranta, Joy, Abir and Ashu.</a>
+                            &copy; <script>document.write(new Date().getFullYear())</script>, made  by <a href="http://www.creative-tim.com">Pranta, Joy, Abir and Ashu.</a>
                         </div>
                     </div>
                 </footer>
@@ -291,7 +291,7 @@ $admin = students::find($value);
 
         $.notify({
             icon: 'ti-gift',
-            message: "Welcome to <b>Hostel Management System</b> - a place you can consider home."
+            message: "Welcome to <b>Hostel Management System</b>."
 
         },{
             type: 'success',

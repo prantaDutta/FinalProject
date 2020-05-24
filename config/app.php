@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Illuminate\Html\HtmlServiceProvider::class, 
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -230,6 +234,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Carbon' => \Carbon\Carbon::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
